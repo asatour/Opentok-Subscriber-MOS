@@ -1,4 +1,4 @@
-#OpenTok MOS - JS
+#OpenTok Subscriber Video MOS(Quality) for React Native
 
 ## Usage
 

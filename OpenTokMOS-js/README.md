@@ -2,20 +2,20 @@
 
 ## Usage
 
-* Include `OpenTokMOS.js` in your app controller:
+* Import `VideoStatsMos.js` in your component:
+import VideoStatsMos from './VideoStatsMos'
+
+* init VideoStatsMos in the constructor
 ```js
-<script src='/OpenTokMOS.js' charset="utf-8"></script>
+    this.videoStatsMos = new VideoStatsMos()
+```
+* Simulate Video Quality Rate after videoNetworkStats fire
+```js
+    this.videoStatsMos = new VideoStatsMos()
+    this.subscriberEventHandlers = {
+      videoNetworkStats: (stats) => {
+        this.videoStatsMos.onVideoStats(stats, average => console.info('average', average))
+      },
+    }
 ```
 
-* After creating a subscriber, initialize an MOS estimator: 
-```js
-var mosEstimator = SubscriberMOS(subscriber);
-```
-
-* At some point during the life of the subscriber, query for your scores:
-
-```js
-subscriber.on("destroyed", function() {
-  console.log("Subscriber quality score: " + mosEstimator.qualityScore());
-});
-```
